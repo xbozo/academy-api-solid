@@ -1,0 +1,14 @@
+# docker run —name api-solid-pg -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=apisolid -p 5433:5432 bitnami/postgresql
+
+version: '3'
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    container_name: api-solid-pg
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=apisolid
+    ports:
+      - '5433:5432'
