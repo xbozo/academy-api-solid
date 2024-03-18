@@ -33,3 +33,16 @@ Aplicação estilo GymPass.
 - 🚧 Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - 🚧 Todas listas de dados precisam estar paginadas com 20 itens por página;
 - 🚧 O usuário deve ser identificado por um JWT (JSON Web Token);
+
+# Setup
+
+```powershell
+npm install
+npm run docker:start
+npx prisma migrate dev
+npm run dev
+```
+
+# Endpoints
+
+...
