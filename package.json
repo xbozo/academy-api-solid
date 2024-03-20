@@ -9,6 +9,8 @@
 		"build": "tsup src --out-dir build",
 		"test": "vitest run",
 		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"test:ui": "vitest --ui",
 		"docker:start": "docker compose up -d",
 		"docker:stop": "docker compose stop"
 	},
@@ -17,6 +19,7 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@types/node": "^20.11.28",
+		"@vitest/coverage-v8": "1.4.0",
 		"prisma": "5.11.0",
 		"tsup": "^8.0.2",
 		"tsx": "^4.7.1",

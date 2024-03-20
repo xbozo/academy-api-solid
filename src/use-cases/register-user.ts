@@ -3,7 +3,7 @@ import { User } from '@prisma/client'
 import { hash } from 'bcryptjs'
 import { UserEmailAlreadyExistsError } from './errors/user-email-already-exists-error'
 
-type RegisterServiceParams = {
+type RegisterUseCaseParams = {
 	name: string
 	email: string
 	password: string
@@ -13,7 +13,7 @@ type RegisterUseCaseResponse = {
 	user: User
 }
 
-export class RegisterUseCase {
+export class RegisterUserUseCase {
 	// esse private transforma o parâmetro como uma prop da classe
 	constructor(private usersRepository: UsersRepository) {}
 
@@ -21,7 +21,7 @@ export class RegisterUseCase {
 		email,
 		name,
 		password,
-	}: RegisterServiceParams): Promise<RegisterUseCaseResponse> {
+	}: RegisterUseCaseParams): Promise<RegisterUseCaseResponse> {
 		const password_hash = await hash(password, 6)
 
 		const userEmailAlreadyExists = await this.usersRepository.findByEmail(email)
