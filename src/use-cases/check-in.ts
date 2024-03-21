@@ -6,14 +6,14 @@ import { CheckIn } from '@prisma/client'
 import { MaxDistanceError } from './errors/max-distance-error'
 import { MaxNumbersOfCheckInsError } from './errors/max-number-of-check-ins-error'
 
-interface CheckInUseCaseRequest {
+type CheckInUseCaseRequest = {
 	userId: string
 	gymId: string
 	userLatitude: number
 	userLongitude: number
 }
 
-interface CheckInUseCaseResponse {
+type CheckInUseCaseResponse = {
 	checkIn: CheckIn
 }
 
@@ -45,8 +45,6 @@ export class CheckInUseCase {
 		if (distance > MAX_DISTANCE_IN_KILOMETERS) {
 			throw new MaxDistanceError()
 		}
-
-		// calculate distance between user and gym
 
 		const checkInOnSameDay = await this.checkInsRepository.findByUserIdOnDate(userId, new Date())
 
