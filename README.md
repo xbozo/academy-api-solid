@@ -15,7 +15,7 @@ Aplicação estilo GymPass.
 - ✔️ Deve ser possível o usuário buscar academias próximas (até 10km);
 - ✔️ Deve ser possível o usuário buscar academias pelo nome;
 - ✔️ Deve ser possível o usuário realizar check-in em uma academia;
-- 🚧 Deve ser possível validar o check-in de um usuário;
+- ✔️ Deve ser possível validar o check-in de um usuário;
 - ✔️ Deve ser possível cadastrar uma academia.
 
 ## Regras de negócio
@@ -23,7 +23,7 @@ Aplicação estilo GymPass.
 - ✔️ O usuário não deve poder se cadastrar com um e-mail duplicado;
 - ✔️ O usuário não pode fazer 2 check-ins no mesmo dia;
 - ✔️ O usuário não pode fazer check-in se não estiver perto (100m) da academia;
-- 🚧 O check-in só pode ser validado até 20 minutos após criado;
+- ✔️ O check-in só pode ser validado até 20 minutos após criado;
 - 🚧 O check-in só pode ser validado por administradores;
 - 🚧 A academia só pode ser cadastrada por administradores;
 
