@@ -1,9 +1,22 @@
+import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error'
+import { makeGetUserProfileUseCase } from '@/use-cases/factories/make-get-user-profile-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 
 export const profileController = async (req: FastifyRequest, reply: FastifyReply) => {
-	await req.jwtVerify() // throws an error if fails
+	const getUserProfile = makeGetUserProfileUseCase()
 
-	console.log(req.user.sub)
+	const { user } = await getUserProfile.execute({
+		userId: req.user.sub,
+	})
 
-	reply.status(200).send()
+	if (!user) {
+		throw new ResourceNotFoundError()
+	}
+
+	reply.status(200).send({
+		user: {
+			...user,
+			password_hash: undefined,
+		},
+	})
 }
