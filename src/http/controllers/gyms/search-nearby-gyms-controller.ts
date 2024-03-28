@@ -21,7 +21,7 @@ export const searchNearbyGymsController = async (req: FastifyRequest, reply: Fas
 		userLongitude: longitude,
 	})
 
-	reply.status(201).send({
+	reply.status(200).send({
 		gyms,
 	})
 }

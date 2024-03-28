@@ -6,18 +6,18 @@ import { CheckIn } from '@prisma/client'
 import { MaxDistanceError } from './errors/max-distance-error'
 import { MaxNumbersOfCheckInsError } from './errors/max-number-of-check-ins-error'
 
-type CheckInUseCaseRequest = {
+type CreateCheckInUseCaseRequest = {
 	userId: string
 	gymId: string
 	userLatitude: number
 	userLongitude: number
 }
 
-type CheckInUseCaseResponse = {
+type CreateCheckInUseCaseResponse = {
 	checkIn: CheckIn
 }
 
-export class CheckInUseCase {
+export class CreateCheckInUseCase {
 	constructor(
 		private checkInsRepository: CheckInsRepository,
 		private gymsRepository: GymsRepository
@@ -28,7 +28,7 @@ export class CheckInUseCase {
 		gymId,
 		userLatitude,
 		userLongitude,
-	}: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
+	}: CreateCheckInUseCaseRequest): Promise<CreateCheckInUseCaseResponse> {
 		const gym = await this.gymsRepository.findById(gymId)
 
 		if (!gym) {

@@ -1,6 +1,6 @@
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
-import { CheckInUseCase } from '@/use-cases/check-in'
+import { CheckInUseCase } from '@/use-cases/create-check-in'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { MaxDistanceError } from '../errors/max-distance-error'
 import { MaxNumbersOfCheckInsError } from '../errors/max-number-of-check-ins-error'

@@ -17,7 +17,7 @@ export const searchGymsController = async (req: FastifyRequest, reply: FastifyRe
 		query,
 	})
 
-	reply.status(201).send({
+	reply.status(200).send({
 		gyms,
 	})
 }
