@@ -1,0 +1,34 @@
+name: Run E2E Tests
+
+on: [pull_request]
+
+jobs:
+  run-unit-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: bitnami/postgresql
+        container_name: api-solid-pg
+        environment:
+          - POSTGRESQL_USERNAME=docker
+          - POSTGRESQL_PASSWORD=docker
+          - POSTGRESQL_DATABASE=apisolid
+        ports:
+          - '5433:5432'
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.32.9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm run test:e2e
+        env:
+          JWT_SECRET: testing-secret
+          DATABASE_URL: 'postgresql://docker:docker@localhost:5433/apisolid?schema=public'
