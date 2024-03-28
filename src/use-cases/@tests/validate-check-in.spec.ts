@@ -7,9 +7,6 @@ import { ValidateCheckInUseCase } from '../validate-check-in'
 let checkInsRepository: InMemoryCheckInsRepository
 let sut: ValidateCheckInUseCase
 
-let defaultLatitude = -27.2092052
-let defaultLongitude = -49.6401091
-
 describe('Validate check-in Use Case', () => {
 	beforeEach(async () => {
 		checkInsRepository = new InMemoryCheckInsRepository()
