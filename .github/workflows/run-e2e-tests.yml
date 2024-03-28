@@ -10,13 +10,12 @@ jobs:
     services:
       postgres:
         image: bitnami/postgresql
-        container_name: api-solid-pg
-        environment:
-          - POSTGRESQL_USERNAME=docker
-          - POSTGRESQL_PASSWORD=docker
-          - POSTGRESQL_DATABASE=apisolid
         ports:
           - '5433:5432'
+        env:
+          POSTGRESQL_USERNAME: docker
+          POSTGRESQL_PASSWORD: docker
+          POSTGRESQL_DATABASE: apisolid
 
     steps:
       - uses: actions/checkout@v4

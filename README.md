@@ -24,15 +24,15 @@ Aplicação estilo GymPass.
 - ✔️ O usuário não pode fazer 2 check-ins no mesmo dia;
 - ✔️ O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - ✔️ O check-in só pode ser validado até 20 minutos após criado;
-- 🚧 O check-in só pode ser validado por administradores;
-- 🚧 A academia só pode ser cadastrada por administradores;
+- ✔️ O check-in só pode ser validado por administradores;
+- ✔️ A academia só pode ser cadastrada por administradores;
 
 ## Requisitos não funcionais
 
 - ✔️ A senha do usuário precisa estar criptografada;
 - ✔️ Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-- 🚧 Todas listas de dados precisam estar paginadas com 20 itens por página;
-- 🚧 O usuário deve ser identificado por um JWT (JSON Web Token);
+- ✔️ Todas listas de dados precisam estar paginadas com 20 itens por página;
+- ✔️ O usuário deve ser identificado por um JWT (JSON Web Token);
 
 ## Setup
 
@@ -41,6 +41,13 @@ npm install
 npm run docker:start
 npx prisma migrate dev
 npm run dev
+
+# Tests
+npm run test:create-prisma-environment
+npm run test:install-prisma-environment
+
+npm run test
+npm run test:e2e
 ```
 
 ## Endpoints
